@@ -1,0 +1,33 @@
+{%  extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h1>Editar Facturacion<h1>
+    <div class="card">
+        <div class="card-boy">
+            <form action="/editarFacturacion/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtid_factura" name="txtid_factura" class="form-control" value="{{mifacturacion.id_factura}}" maxLenght="50" readonly>
+                </div>
+                <div class="form-group py-3">
+                    <input type="text" id="txtid_reserva" name="txtid_reserva" class="form-control" value="{{mifacturacion.id_reserva}}" maxLenght="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtfecha_de_pago" name="txtfecha_de_pago" class="form-control" value="{{mifacturacion.fecha_de_pago}}" maxLenght="100" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtmonto_total" name="txtmonto_total" class="form-control" value="{{mifacturacion.monto_total}}" maxLenght="50" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtmetodo_de_pago" name="txtmetodo_de_pago" class="form-control" value="{{mifacturacion.metodo_de_pago}}" maxlength="50" required>
+                </div>
+                <div class="form-group py-2">
+                    <button type="submit" class="btn bnt-primary">Guardar</button>
+                </div>
+
+            </form>
+    </div>
+
+    </div>
+    {% endblock %}
