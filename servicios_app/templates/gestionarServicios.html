@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4">
+        <h1>Registrar Servicios</h1>
+        <form action="/registrarServicios/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="txtid_servicio" name="txtid_servicio" class="form-control" placeholder="ID Servicio" maxlength="10" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtnombre" name="txtnombre" class="form-control" placeholder="Nombre" maxlength="100" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtdescripcion" name="txtdescripcion" class="form-control" placeholder="Descripcion" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtprecio" name="txtprecio" class="form-control" placeholder="Precio" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-8 col-xl-4"><!--columna derecha-->
+        <h1>Listado de Servicios</h1>
+        <img class="rounded mx-auto d-block" src="{% static "img/servicios.jpg" %}" alt="alexis" />
+    
+        <div class="table-responsive"> <!--tabla responsiva-->
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id reserva</th>
+                    <th scope="col">id huespedes</th>
+                    <th scope="col">id habitacion</th>
+                    <th scope="col">Fecha de Entrada</th>
+                    <th scope="col">Fecha de Salida</th>
+                    <th scope="col">total pago</th>
+                    <th scope="col">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for E in misservicios %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{E.id_servicio}}</td>
+                    <td>{{E.nombre}}</td>
+                    <td>{{E.descripciom}}</td>
+                    <td>{{E.precio}}</td>
+                    <td><a href="seleccionarServicios/{{E.id_servicio}}" class="btn btn-info">Editar</td> <!--falta link-->
+                      <td><a href="borrarServicios/{{E.id_servicio}}" class="btn btn-danger">Borrar</td> <!--falta link-->
+                    
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    </div>
+    {% endblock %}

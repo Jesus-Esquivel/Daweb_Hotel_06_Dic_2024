@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1>Editar Ventas</h1>
+        <form action="/editarServicios/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="txtid_servicio" name="txtid_servicio" class="form-control" value="{{misservicios.id_servicio}}" maxlength="6" readonly>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtnombre" name="txtnombre" class="form-control" value="{{misservicios.nombre}}" maxlength="100" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtdescripcion" name="txtdescripcion" class="form-control" value="{{misservicios.descripcion}}" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtprecio" name="txtprecio" class="form-control" value="{{misservicios.precio}}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{%  extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h1>Editar Habitaciones<h1>
+    <div class="card">
+        <div class="card-boy">
+            <form action="/editarReservas/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtid_reserva" name="txtid_reserva" class="form-control" value="{{misreservas.id_reserva}}" maxLenght="10" readonly>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtid_huespedes" name="txtid_huespedes" class="form-control" value="{{misreservas.id_huespedes}}" maxLenght="10" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtid_habitacion" name="txtid_habitacion" class="form-control" value="{{misreservas.id_habitacion}}" maxLenght="10" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="txtFecha_de_Entrada" name="txtFecha_de_Entrada" class="form-control" value="{{misreservas.Fecha_de_Entrada}}" maxLenght="40" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="txtFecha_de_Salida" name="txtFecha_de_Salida" class="form-control" value="{{misreservas.Fecha_de_Salida}}" maxLenght="100" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="numtotal_pago" name="numtotal_pago" class="form-control" value="{{misreservas.total_pago}}" maxLenght="50" requiered>
+                </div>
+                <div class="form-group">
+                   <input type="text" id="txtestado" name="txtestado" class="form-control" value="{{misreservas.estado}}" maxLenght="20" requiered>
+                <div class="form-group">
+                    <button type="submit" class="btn bnt-primary">Guardar</button>
+                </div>
+            </form>
+    </div>
+
+    </div>
+    {% endblock %}
