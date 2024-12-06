@@ -20,7 +20,7 @@ def registrarFacturacion(request):
         monto_total=monto_total,
         metodo_de_pago=metodo_de_pago
    )
-   return redirect("/")
+   return redirect("inicio_vistaFacturacion")
 
 def SeleccionarFacturacion(request,id_factura):
     facturacion=Facturacion.objects.get(id_factura=id_factura)
@@ -38,9 +38,9 @@ def editarFacturacion(request):
     facturacion.fecha_de_pago=fecha_de_pago
     facturacion.monto_total=monto_total
     facturacion.metodo_de_pago=metodo_de_pago
-    return redirect("/") 
+    return redirect("inicio_vistaFacturacion") 
 
 def borrarFacturacion(request,id_factura):
    facturacion=Facturacion.objects.get(id_factura=id_factura)
    facturacion.delete()
-   return redirect("/") 
+   return redirect("inicio_vistaFacturacion") 
