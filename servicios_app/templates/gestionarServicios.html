@@ -24,19 +24,14 @@
     <div class="col-sm-12 col-md-4 col-lg-8 col-xl-4"><!--columna derecha-->
         <h1>Listado de Servicios</h1>
         <img class="rounded mx-auto d-block" src="{% static "img/servicios.jpg" %}" alt="alexis" />
-    
-        <div class="table-responsive"> <!--tabla responsiva-->
             <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">id reserva</th>
-                    <th scope="col">id huespedes</th>
-                    <th scope="col">id habitacion</th>
-                    <th scope="col">Fecha de Entrada</th>
-                    <th scope="col">Fecha de Salida</th>
-                    <th scope="col">total pago</th>
-                    <th scope="col">Estado</th>
+                    <th scope="col">id servicio</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,7 +40,7 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{E.id_servicio}}</td>
                     <td>{{E.nombre}}</td>
-                    <td>{{E.descripciom}}</td>
+                    <td>{{E.descripcion}}</td>
                     <td>{{E.precio}}</td>
                     <td><a href="seleccionarServicios/{{E.id_servicio}}" class="btn btn-info">Editar</td> <!--falta link-->
                       <td><a href="borrarServicios/{{E.id_servicio}}" class="btn btn-danger">Borrar</td> <!--falta link-->
@@ -54,5 +49,4 @@
                 {% endfor %}
                 </tbody>
               </table>
-    </div>
     {% endblock %}
