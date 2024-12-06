@@ -3,10 +3,10 @@
 {% block cuerpo %}
 <div class="row">
 <div class="col-md-4 offset-md-4">
-    <h1>Editar Habitaciones<h1>
+    <h1>Editar Huespedes<h1>
     <div class="card">
         <div class="card-boy">
-            <form action="/editarHabitaciones/" method="POST">{% csrf_token %}
+            <form action="/editarHuespedes/" method="POST">{% csrf_token %}
                 <div class="form-group">
                     <input type="text" id="txtid_huespedes" name="txtid_huespedes" class="form-control" value="{{mishuespedes.id_huespedes}}" maxLenght="50" readonly>
                 </div>

@@ -11,10 +11,10 @@ def registrarHuespedes(request):
     nombre=request.POST["txtnombre"]
     apellido=request.POST["txtapellido"]
     email=request.POST["txtemail"]
-    telefono=request.POST["txttelefono"]
+    telefono=request.POST["numtelefono"]
     direccion=request.POST["txtdireccion"]
     
-    guardarServicios=Huespedes.objects.create(
+    guardarHuespedes=Huespedes.objects.create(
         id_huespedes=id_huespedes,
         nombre=nombre,
         apellido=apellido,
@@ -23,7 +23,7 @@ def registrarHuespedes(request):
         direccion=direccion
     )
     
-    return redirect("/")
+    return redirect("inicio_vistaHuespedes")
 
 def SeleccionarHuespedes(request,id_huespedes):
     huespedes=Huespedes.objects.get(id_huespedes=id_huespedes)
@@ -34,7 +34,7 @@ def editarHuespedes(request):
     nombre=request.POST["txtnombre"]
     apellido=request.POST["txtapellido"]
     email=request.POST["txtemail"]
-    telefono=request.POST["txttelefono"]
+    telefono=request.POST["numtelefono"]
     direccion=request.POST["txtdireccion"]
     huespedes=Huespedes.objects.get(id_huespedes=id_huespedes)
     huespedes.id_huespedes=id_huespedes
@@ -43,9 +43,9 @@ def editarHuespedes(request):
     huespedes.email=email
     huespedes.telefono=telefono
     huespedes.direccion=direccion
-    return redirect("/") 
+    return redirect("inicio_vistaHuespedes") 
 
 def borrarHuespedes(request,id_huespedes):
     huespedes=Huespedes.objects.get(id_huespedes=id_huespedes)
     huespedes.delete()
-    return redirect("/") 
+    return redirect("inicio_vistaHuespedes") 
