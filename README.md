@@ -7,5 +7,3 @@ Hotel CRUD Tablas en Django
 ![image](https://github.com/user-attachments/assets/441a4cf6-57ff-4e27-82fd-9e9bc55421f5)
 ![image](https://github.com/user-attachments/assets/e5a55f85-da2e-4010-aec9-5d6b5c066b11)
 ![image](https://github.com/user-attachments/assets/733de17c-693e-4305-b38c-76449c9e19ea)
-
-![image](https://github.com/user-attachments/assets/60d53214-e5f8-4b2c-bbd5-3a7fbc7958aa)
