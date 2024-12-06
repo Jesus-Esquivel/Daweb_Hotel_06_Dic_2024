@@ -38,12 +38,10 @@
     </div>
 
 </div>
-<div class="col-sm-12 col-md-4 col-lg-8 col-xl-4"><!--columna derecha-->
+<div class="col-sm-12 col-md-4 col-lg-4 col-xl-8"><!--columna derecha-->
     <h1>Listado de Empleados</h1>
     <img class="rounded mx-auto d-block" src="{% static "img/empleados.jpg" %}" alt="Juan" />
-
-    <div class="table-responsive"> <!--tabla responsiva-->
-        <table class="table table-striped">
+        <table class="col-sm-12 ">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -73,6 +71,6 @@
             </tr>
             {% endfor %}
             </tbody>
-          </table>
-</div>
+        </table>
+    </div>
 {% endblock %}
