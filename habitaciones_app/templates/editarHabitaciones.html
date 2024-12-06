@@ -1,0 +1,33 @@
+{%  extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h1>Editar Habitaciones<h1>
+    <div class="card">
+        <div class="card-boy">
+            <form action="/editarHabitaciones/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtid_habitaciones" name="txtid_habitaciones" class="form-control" value="{{misHabitaciones.id_habitaciones}}" maxLenght="50" readonly>
+                </div>
+                <div class="form-group py-3">
+                    <input type="text" id="txtnumero_habitacion" name="txtnumero_habitacion" class="form-control" value="{{misHabitaciones.numero_habitacion}}" maxLenght="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txttipo" name="txttipo" class="form-control" value="{{misHabitaciones.tipo}}" maxLenght="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="txtprecio_por_noche" name="txtprecio_por_noche" class="form-control" value="{{misHabitaciones.precio_por_noche}}" maxLenght="100" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtEstado" name="txtEstado" class="form-control" value="{{misHabitaciones.Estado}}" maxLenght="55" requiered>
+                </div>
+                <div class="form-group py-2">
+                    <button type="submit" class="btn bnt-primary">Guardar</button>
+                </div>
+
+            </form>
+    </div>
+
+    </div>
+    {% endblock %}

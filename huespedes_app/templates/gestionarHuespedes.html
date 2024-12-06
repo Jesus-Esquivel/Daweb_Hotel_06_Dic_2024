@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4">
+        <h1>Registrar Huespedes</h1>
+        <form action="/registrarHuespedes/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="txtid_huespedes" name="txtid_huespedes" class="form-control" placeholder="ID Huespedes" maxlength="10" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtnombre" name="txtnombre" class="form-control" placeholder="Nombre" maxlength="100" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtapellido" name="txtapellido" class="form-control" placeholder="Apellido" maxLenght="100" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtemail" name="txtemail" class="form-control" placeholder="Email" maxLenght="40" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txttelefono" name="txttelefono" class="form-control" placeholder="Telefono" maxlength="15" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" placeholder="Direccion" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+    <div class="col-sm-12 col-md-4 col-lg-8 col-xl-4"><!--columna derecha-->
+        <h1>Listado de Huespedes</h1>
+        <img class="rounded mx-auto d-block" src="{% static "img/huespedes.jpg" %}" alt="alexis" />
+    
+        <div class="table-responsive"> <!--tabla responsiva-->
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id huespedes</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">apellido</th>
+                    <th scope="col">email</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">direccion</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for E in mishuespedes %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{E.id_huespedes}}</td>
+                    <td>{{E.nombre}}</td>
+                    <td>{{E.apellido}}</td>
+                    <td>{{E.email}}</td>
+                    <td>{{E.telefono}}</td>
+                    <td>{{E.direccion}}</td>
+                    <td><a href="seleccionarHuespedes/{{E.id_huespedes}}" class="btn btn-info">Editar</td> <!--falta link-->
+                      <td><a href="borrarHuespedes/{{E.id_huespedes}}" class="btn btn-danger">Borrar</td> <!--falta link-->
+                    
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    </div>
+    {% endblock %}

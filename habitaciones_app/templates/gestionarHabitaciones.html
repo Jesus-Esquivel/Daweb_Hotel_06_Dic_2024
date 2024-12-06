@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+<div class="row">
+    <div class="col-md-4">
+        <h1>Registrar Habitaciones</h1>
+        <form action="/registrarHabitaciones/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="txtid_habitaciones" name="txtid_habitaciones" class="form-control" placeholder="ID Habitaciones" maxlength="6" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtnumero_habitacion" name="txtnumero_habitacion" class="form-control" placeholder="Numero Habitacion" maxlength="50" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txttipo" name="txttipo" class="form-control" placeholder="Tipo" required>
+            </div>
+            <div class="form-group">
+                <input type="number" id="txtprecio_por_noche" name="txtprecio_por_noche" class="form-control" placeholder="Precio por Noche" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="txtEstado" name="txtEstado" class="form-control" placeholder="Estado" maxlength="100" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+    <div class="col-sm-12 col-md-4 col-lg-8 col-xl-4"><!--columna derecha-->
+        <h1>Listado de Habitaciones</h1>
+        <img class="rounded mx-auto d-block" src="{% static "img/habitaciones.jpg" %}" alt="alexis" />
+    
+        <div class="table-responsive"> <!--tabla responsiva-->
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">id habitaciones</th>
+                    <th scope="col">numero habitacion</th>
+                    <th scope="col">tipo</th>
+                    <th scope="col">precio por noche</th>
+                    <th scope="col">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for E in mishabitaciones %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{E.id_habitaciones}}</td>
+                    <td>{{E.numero_habitacion}}</td>
+                    <td>{{E.tipo}}</td>
+                    <td>{{E.precio_por_noche}}</td>
+                    <td>{{E.Estado}}</td>
+                    <td><a href="seleccionarHabitaciones/{{E.id_habitaciones}}" class="btn btn-info">Editar</td> <!--falta link-->
+                      <td><a href="borrarHabitaciones/{{E.id_habitaciones}}" class="btn btn-danger">Borrar</td> <!--falta link-->
+                    
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+    </div>
+    {% endblock %}

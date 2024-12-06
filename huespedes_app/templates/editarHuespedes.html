@@ -1,0 +1,35 @@
+{%  extends "base.html" %}
+
+{% block cuerpo %}
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <h1>Editar Habitaciones<h1>
+    <div class="card">
+        <div class="card-boy">
+            <form action="/editarHabitaciones/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtid_huespedes" name="txtid_huespedes" class="form-control" value="{{mishuespedes.id_huespedes}}" maxLenght="50" readonly>
+                </div>
+                <div class="form-group py-3">
+                    <input type="text" id="txtnombre" name="txtnombre" class="form-control" value="{{mishuespedes.nombre}}" maxLenght="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtapellido" name="txtapellido" class="form-control" value="{{mishuespedes.apellido}}" maxLenght="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="txt" id="txtemail" name="txtemail" class="form-control" value="{{mishuespedes.email}}" maxLenght="40" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="num" id="numtelefono" name="numtelefono" class="form-control" value="{{mishuespedes.telefono}}" maxLenght="50" requiered>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" value="{{mishuespedes.direccion}}" maxLenght="50" requiered>
+                </div>
+                    <div class="form-group">
+                    <button type="submit" class="btn bnt-primary">Guardar</button>
+                </div>
+            </form>
+    </div>
+
+    </div>
+    {% endblock %}
